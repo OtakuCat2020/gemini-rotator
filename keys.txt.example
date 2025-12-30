@@ -1,0 +1,18 @@
+# Gemini API Keys 配置文件
+# 
+# 每行放入一个 Gemini API Key
+# 服务器启动时会自动加载这个文件
+# 
+# 注意：请将此文件重命名为 keys.txt 后使用
+# 
+# 获取API Key：https://makersuite.google.com/app/apikey
+#
+# 示例格式：
+# AIzaSyABC123...
+# AIzaSyDEF456...
+# AIzaSyGHI789...
+#
+# 支持248个或更多API Key，每请求自动轮询
+# 连续3次失败后标记Key为不可用
+#
+# 以 # 开头的行会被忽略（注释行）

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  gemini-rotator:
+    build: .
+    container_name: gemini-rotator
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./keys.txt:/app/keys.txt:ro
+    environment:
+      - NODE_ENV=production
+      - PORT=7860
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
